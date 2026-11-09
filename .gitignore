@@ -13,3 +13,10 @@
 *.log
 
 # Nothing is built here — this is a static directory upload.
+
+# npm
+node_modules/
+dist/
+
+# Internal build brief — not published
+PROMPT.md

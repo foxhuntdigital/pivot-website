@@ -1,0 +1,30 @@
+# Netlify config for the PIVOT marketing and legal site.
+#
+# The site is plain HTML and CSS; Vite is used only to produce `dist/`, which
+# minifies and content-hashes styles.css and leaves repo-internal files
+# (PROMPT.md, README.md, config) out of the deployed output.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+# Hashed assets can be cached forever — the filename changes when the file does.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML is revalidated so a redeploy is picked up immediately.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

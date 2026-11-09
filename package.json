@@ -1,0 +1,14 @@
+{
+  "name": "pivot-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static marketing and legal site for the PIVOT iOS app",
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.1.5"
+  }
+}
