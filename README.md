@@ -31,32 +31,23 @@ npm entirely.
 | `vite.config.js` | Local dev-server config — lists all four pages as entries |
 | `netlify.toml` | Netlify build, publish directory and cache/security headers |
 
-## Before you publish — placeholders to replace
+## Site identity
 
-Four values are stubbed. Replace each across all four HTML files:
-
-| Placeholder | Replace with |
+| Value | Setting |
 |---|---|
-| `YOUR-DOMAIN.com` | your domain |
-| `support@YOUR-DOMAIN.com` | your support email address |
-| `YOUR LEGAL ENTITY` | the LLC or personal name the policies are issued under |
-| `YOUR STATE, USA` | the governing law for the terms (`terms.html` only) |
+| Domain | `pivot-engine.app` (canonical host, served over HTTPS with `www` redirecting to the apex) |
+| Operating entity | Herobic LLC — named in `privacy.html` and `terms.html` |
+| Contact address | `ashley@foxhuntdigital.com` — the support, privacy and legal contact on every page |
 
-From the repo root:
-
-```sh
-grep -rn "YOUR-DOMAIN\|YOUR LEGAL ENTITY\|YOUR STATE" *.html
-```
-
-and to replace them (macOS `sed`):
+The pages link each other with relative paths, so the domain appears only in
+the `<link rel="canonical">` and `og:url` tags in each `<head>`. If the domain
+ever changes, those four tags and this table are the whole edit:
 
 ```sh
-sed -i '' 's/YOUR-DOMAIN\.com/example.com/g'        *.html
-sed -i '' 's/YOUR LEGAL ENTITY/Example Training LLC/g' *.html
-sed -i '' 's/YOUR STATE, USA/Texas, USA/g'          terms.html
+grep -rn "pivot-engine.app" *.html README.md
 ```
 
-Also outstanding:
+Still outstanding:
 
 - **App Store badge.** Both badge slots in `index.html` are marked with an HTML
   comment and currently link to `#`. Download the official badge from Apple's
@@ -96,7 +87,7 @@ updates are never served stale from cache.
 3. Netlify reads `netlify.toml`, so leave the build command and publish
    directory as they are prefilled. Deploy.
 4. You get a `*.netlify.app` URL immediately. Check all four pages there before
-   pointing your domain at it.
+   pointing `pivot-engine.app` at it.
 
 Every push to `main` redeploys. Pull requests get their own preview URL.
 
@@ -110,33 +101,35 @@ headers above are not applied. Option A is preferable for that reason.
 
 ### Pointing your domain at it
 
-1. In the site's **Domain management → Add a domain**, enter your domain.
+1. In the site's **Domain management → Add a domain**, enter `pivot-engine.app`.
 2. Either delegate DNS to Netlify by changing your registrar's nameservers to
    the four Netlify gives you, or keep your DNS where it is and add the records
    Netlify shows (an `ALIAS`/`ANAME` or `A` record for the apex, `CNAME` for
    `www`).
-3. Netlify sets one host as primary and redirects the other automatically.
+3. Set the apex `pivot-engine.app` as the primary domain; Netlify then
+   redirects `www` to it automatically. The apex is what the canonical and
+   `og:url` tags point at, so keep it primary.
 4. TLS via Let's Encrypt is issued once DNS resolves — give it a few minutes
    before testing `https://`.
 
 ## URLs to paste where
 
-Once the site is live at your domain:
+Once the site is live at `pivot-engine.app`:
 
 **App Store Connect**
 
 | Field | URL |
 |---|---|
-| Support URL | `https://YOUR-DOMAIN.com/support.html` |
-| Privacy Policy URL | `https://YOUR-DOMAIN.com/privacy.html` |
-| Marketing URL (optional) | `https://YOUR-DOMAIN.com/` |
+| Support URL | `https://pivot-engine.app/support.html` |
+| Privacy Policy URL | `https://pivot-engine.app/privacy.html` |
+| Marketing URL (optional) | `https://pivot-engine.app/` |
 
 **RevenueCat paywall footer**
 
 | Field | URL |
 |---|---|
-| Terms of Service | `https://YOUR-DOMAIN.com/terms.html` |
-| Privacy Policy | `https://YOUR-DOMAIN.com/privacy.html` |
+| Terms of Service | `https://pivot-engine.app/terms.html` |
+| Privacy Policy | `https://pivot-engine.app/privacy.html` |
 
 Netlify also serves these without the `.html` extension (`/support`,
 `/privacy`, `/terms`). The explicit `.html` URLs above are the safe choice

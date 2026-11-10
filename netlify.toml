@@ -11,6 +11,48 @@
 [build.environment]
   NODE_VERSION = "24"
 
+# Clean URLs. The rewrites serve /privacy from privacy.html; the 301s make the
+# .html form canonicalise to it, so only one URL is ever indexed or handed to
+# App Store Connect. Rewrites come first — first match wins.
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/support"
+  to = "/support.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy.html"
+  to = "/privacy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/terms.html"
+  to = "/terms"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/support.html"
+  to = "/support"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
 # Hashed assets can be cached forever — the filename changes when the file does.
 [[headers]]
   for = "/assets/*"

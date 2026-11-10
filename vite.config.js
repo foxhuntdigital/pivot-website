@@ -1,9 +1,30 @@
+import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
+
+// Netlify serves /privacy from privacy.html (see netlify.toml). The dev server
+// does not, so links like href="/privacy" would 404 locally. This resolves them
+// the same way, keeping `npm run dev` faithful to production.
+const cleanUrls = {
+  name: 'clean-urls',
+  configureServer(server) {
+    server.middlewares.use((req, _res, next) => {
+      const [pathname, query] = req.url.split('?')
+      if (pathname !== '/' && !pathname.includes('.')) {
+        const page = `${pathname.replace(/\/$/, '')}.html`
+        if (existsSync(resolve(__dirname, `.${page}`))) {
+          req.url = query ? `${page}?${query}` : page
+        }
+      }
+      next()
+    })
+  },
+}
 
 // The site is plain static HTML. Vite is here only to serve it locally with
 // live reload; every page is its own entry so `build` keeps all four.
 export default defineConfig({
+  plugins: [cleanUrls],
   server: { port: 5173 },
   build: {
     rollupOptions: {
