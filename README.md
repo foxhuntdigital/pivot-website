@@ -37,7 +37,7 @@ npm entirely.
 |---|---|
 | Domain | `pivot-engine.app` (canonical host, served over HTTPS with `www` redirecting to the apex) |
 | Operating entity | Herobic LLC — named in `privacy.html` and `terms.html` |
-| Contact address | `ashley@foxhuntdigital.com` — the support, privacy and legal contact on every page |
+| Contact address | `support@foxhuntdigital.com` — the support, privacy and legal contact on every page |
 
 The pages link each other with relative paths, so the domain appears only in
 the `<link rel="canonical">` and `og:url` tags in each `<head>`. If the domain
