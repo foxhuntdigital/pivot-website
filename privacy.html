@@ -42,13 +42,14 @@
     <div class="wrap doc-head__inner">
       <p class="micro">Legal</p>
       <h1>Privacy Policy</h1>
-      <p class="updated">Effective: 11 November 2026 &middot; Last updated: 9 November 2026</p>
+      <p class="updated">Effective: 11 November 2026 &middot; Last updated: 17 November 2026</p>
 
       <ol class="toc">
         <li><a href="#short">The short version</a></li>
         <li><a href="#who">Who we are</a></li>
         <li><a href="#store">What we store</a></li>
         <li><a href="#sensitive">Health-adjacent data</a></li>
+        <li><a href="#coach">Coach</a></li>
         <li><a href="#analytics">Analytics and crash reporting</a></li>
         <li><a href="#subs">Subscriptions and payment</a></li>
         <li><a href="#not">What PIVOT does not do</a></li>
@@ -71,7 +72,7 @@
       <div class="prose">
 
       <h2 id="short">The short version</h2>
-      <p>PIVOT stores your training history and the wellbeing inputs you enter, because the plan is built from them. We use one analytics service to understand how the app is used, and we deliberately keep sensitive values out of it. Apple takes the payment, so we never see your card details. We do not sell personal data, we do not run advertising, and we do not read anything from HealthKit or a wearable.</p>
+      <p>PIVOT stores your training history and the wellbeing inputs you enter, because the plan is built from them. Coach's answers are written by an AI service, so what you ask Coach is sent to it to produce a reply. We use one analytics service to understand how the app is used, and we deliberately keep sensitive values out of it. Apple takes the payment, so we never see your card details. We do not sell personal data, we do not run advertising, and we do not read anything from HealthKit or a wearable.</p>
 
       <h2 id="who">Who we are</h2>
       <p>PIVOT is an iOS training app operated by Herobic LLC, a limited liability company organised in the United States. This policy covers the app and this website. It does not cover third-party products or websites we do not control, even where you reach them from the app. If you have a question about anything here, email <a href="mailto:support@foxhuntdigital.com">support@foxhuntdigital.com</a>.</p>
@@ -79,37 +80,43 @@
       <h2 id="store">What we store</h2>
       <p>The following is held in the app's own database so that your plan, your history and your coach conversation persist between sessions and devices:</p>
       <ul>
-        <li><strong>Account details</strong> — your email address and display name, and the credentials you sign in with (a password, or a token from a sign-in provider you choose).</li>
+        <li><strong>Account details</strong> — your email address, your display name, and your password (stored only in hashed form by our authentication provider).</li>
         <li><strong>Training history</strong> — sessions, workouts completed, sets, reps, loads, durations, distances and session RPE.</li>
-        <li><strong>Self-reported wellbeing inputs</strong> — sleep hours, energy and symptom flags, where you enter them.</li>
-        <li><strong>Body weight</strong>, where you enter it.</li>
+        <li><strong>Self-reported wellbeing inputs</strong> — sleep hours, energy, soreness and symptom flags, where you enter them.</li>
         <li><strong>Return-to-training considerations</strong> — including postpartum, pelvic-floor and injury flags.</li>
         <li><strong>Coach conversation messages</strong> — what you asked and what Coach replied.</li>
         <li><strong>Race dates and training goals.</strong></li>
         <li><strong>Subscription status</strong> — your plan and renewal dates, keyed to an internal user id.</li>
-        <li><strong>Usage and diagnostic data</strong> — which screens are opened, which features are used, crash and error reports. See <a href="#analytics">Analytics and crash reporting</a>.</li>
-        <li><strong>Device and technical information</strong> — device type, iOS version, app version, language, and general (non-precise) region.</li>
+        <li><strong>Usage and diagnostic data</strong> — which screens are opened, which features are used, crash and error reports, and performance timings. See <a href="#analytics">Analytics and crash reporting</a>.</li>
+        <li><strong>Device and technical information</strong> — device type, iOS version, app version, language, and IP address, which is used to infer a general (non-precise) region.</li>
       </ul>
       <p>This list is complete. If a category is not on it, the app does not collect it — including precise location, contacts, photos and microphone data.</p>
 
       <h2 id="sensitive">Health-adjacent data</h2>
-      <p>Some of what you enter — symptom flags, postpartum and pelvic-floor considerations, injury flags, body weight — is health-adjacent. We treat it as sensitive. It is used for one purpose: adapting your training plan around it. It is not used for advertising, it is not shared with third parties for their own purposes, and it is never sold.</p>
+      <p>Some of what you enter — sleep, soreness, symptom flags, postpartum and pelvic-floor considerations, injury flags — is health-adjacent. We treat it as sensitive.</p>
+      <p>It is used to adapt your training plan around it. When you ask Coach a question, the parts of it needed to answer are sent to our AI provider to produce the reply (see <a href="#coach">Coach</a>). In addition, a few values are sent to our analytics service in coarse ranges rather than as your own figures — a sleep range, a soreness range and a count of symptoms flagged, never their names — so we can understand how the check-in is used.</p>
+      <p>It is not used for advertising, it is not shared with third parties for their own purposes, and it is never sold.</p>
       <div class="callout">
         <p class="micro">Worth being clear about</p>
-        <p>PIVOT adapts around the considerations you tell it about. It does not diagnose, treat or assess any condition, and it is not a medical device.</p>
+        <p>PIVOT adapts around the considerations you tell it about. It does not diagnose, treat or assess any condition, and it is not a medical device. Coach gives training guidance, not medical advice.</p>
       </div>
 
+      <h2 id="coach">Coach</h2>
+      <p>Coach's answers are generated by AI models provided by Anthropic. When you ask Coach something, your question, together with the parts of your plan, training history and wellbeing inputs needed to answer it, is sent to Anthropic to produce the reply. Anthropic processes it to provide this service to us and does not use it to train its models.</p>
+      <p>Your Coach conversation is stored in our database so it is there when you come back, and it is deleted with your account. The text of your questions is never sent to our analytics service; only the kind of question (for example, "adapt today's session") is.</p>
+
       <h2 id="analytics">Analytics and crash reporting</h2>
-      <p>We use Amplitude to understand how the app is used, so we can improve it. These are usage events — which screens are opened, which features are used, where people get stuck.</p>
+      <p>We use Amplitude to understand how the app is used, so we can improve it. These are usage events — which screens are opened, which features are used, where people get stuck, and steps such as creating an account or starting a subscription. Events are linked to an internal user id, not to your name or email.</p>
       <p>The app deliberately excludes sensitive values from analytics. The following are never sent to Amplitude:</p>
       <ul>
         <li>Free-text health notes and considerations</li>
         <li>Symptom names</li>
         <li>Coach message bodies</li>
         <li>Email addresses and display names</li>
+        <li>The values of settings you change (only which setting changed)</li>
       </ul>
       <p>Where a sensitive number would be genuinely informative, it is sent bucketed rather than as your own figure — a sleep range, for example, rather than the exact hours you slept. This is a real constraint in the code, not a statement of intent.</p>
-      <p>Crash and error reports go to Sentry, so we can find and fix faults. These carry technical context — the error, the app version, the device type and the screen you were on — not your training history, wellbeing inputs or coach messages.</p>
+      <p>Crash and error reports go to Sentry, so we can find and fix faults. They carry technical context — the error, the app version, the device type, the screen you were on and performance timings — and are linked to an internal user id. They do not carry your training history, wellbeing inputs, coach messages, email or name.</p>
 
       <h2 id="subs">Subscriptions and payment</h2>
       <p>Subscriptions are handled through RevenueCat and Apple. We store your subscription status keyed to an internal user id, so the app knows what you have access to.</p>
@@ -117,7 +124,7 @@
 
       <h2 id="not">What PIVOT does not do</h2>
       <ul>
-        <li><strong>No HealthKit, wearable or heart-rate integration.</strong> No health data is read from your device. Heart rate displays as "not connected" because there is nothing to connect.</li>
+        <li><strong>No HealthKit, wearable or heart-rate integration.</strong> No health data is read from your device.</li>
         <li><strong>No advertising.</strong> No ad networks, no ad identifiers, no ad tracking.</li>
         <li><strong>Personal data is never sold.</strong></li>
         <li><strong>No location tracking.</strong></li>
@@ -125,12 +132,21 @@
       </ul>
 
       <h2 id="where">Where your data is held</h2>
-      <p>The app's database runs on Supabase, hosted in Amazon Web Services' us-west-2 region in the United States. If you are using PIVOT from outside the United States, your data is transferred there and stored there.</p>
+      <p>The app's database runs on Supabase, hosted in Amazon Web Services' us-west-2 region in the United States. Our other service providers (listed below) may process data in the United States as well. If you are using PIVOT from outside the United States, your data is transferred to and stored in the United States.</p>
 
       <h2 id="sharing">How we share data</h2>
       <p>We share personal data only in the limited circumstances below. We do not sell personal data, and we do not share it for cross-context behavioural advertising.</p>
       <ul>
-        <li><strong>Service providers</strong> — Supabase hosts the database, RevenueCat manages subscriptions, Amplitude provides product analytics, and Sentry receives crash and error reports. They may use the data only to provide those services to us, under confidentiality obligations.</li>
+        <li><strong>Service providers</strong>, who may use the data only to provide their services to us, under confidentiality obligations:
+          <ul>
+            <li>Supabase hosts the database and handles sign-in.</li>
+            <li>Anthropic generates Coach's answers (see <a href="#coach">Coach</a>).</li>
+            <li>RevenueCat manages subscriptions.</li>
+            <li>Amplitude provides product analytics.</li>
+            <li>Sentry receives crash and error reports.</li>
+            <li>Postmark sends account emails, such as sign-up confirmation and password-reset codes.</li>
+          </ul>
+        </li>
         <li><strong>Apple</strong> — purchases and subscriptions are processed by Apple under <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.</li>
         <li><strong>Legal and safety</strong> — where required by law, subpoena or legal process, or to protect the rights, safety and property of Herobic LLC, our users or the public.</li>
         <li><strong>Business transfers</strong> — if Herobic LLC is involved in a merger, acquisition or sale of assets, personal data may transfer as part of it. We will tell you if ownership or use of your data changes.</li>
@@ -140,10 +156,12 @@
       <p>We use administrative, technical and organisational safeguards designed to protect your data, including encryption in transit and access controls. No method of transmission or storage is completely secure, and we cannot guarantee absolute security. Use a strong password and keep your login details to yourself.</p>
 
       <h2 id="retention">How long we keep it</h2>
-      <p>We keep your account data and training history for as long as your account exists, because the plan is built from your history — deleting last month's sessions would change what the engine does this month. We also keep what we need to meet legal obligations, resolve disputes and enforce our terms. When you ask us to delete your account, the associated data is removed. Backups are cycled out in the normal course of operation.</p>
+      <p>We keep your account data and training history for as long as your account exists, because the plan is built from your history — deleting last month's sessions would change what the engine does this month. We also keep what we need to meet legal obligations, resolve disputes and enforce our terms.</p>
+      <p>When your account is deleted, your account and the data associated with it are removed from our database straight away. Backups are cycled out in the normal course of operation. Analytics events and crash reports, which are linked only to an internal user id, are kept by those providers for a limited period under their retention settings; ask us and we will delete them sooner.</p>
 
       <h2 id="deletion">Deleting your account and data</h2>
-      <p>Email <a href="mailto:support@foxhuntdigital.com">support@foxhuntdigital.com</a> from the address on your account and ask us to delete it. We remove your account and the training, wellbeing and coach conversation data associated with it. You can also ask us for a copy of your data at the same address.</p>
+      <p>Delete your account in the app: Profile &rsaquo; Account &rsaquo; Delete account. This permanently removes your account and the training, wellbeing and coach conversation data associated with it.</p>
+      <p>You can also email <a href="mailto:support@foxhuntdigital.com">support@foxhuntdigital.com</a> from the address on your account to ask us to delete it, to ask us to delete the analytics and crash data linked to it, or to ask for a copy of your data.</p>
       <p>Deleting your account does not cancel an active subscription. Cancel that in your Apple ID settings.</p>
 
       <h2 id="rights">Your privacy rights</h2>
@@ -152,7 +170,7 @@
 
       <h2 id="california">California privacy rights</h2>
       <p>If you are a California resident, the California Consumer Privacy Act, as amended by the CPRA, gives you the right to know, access, correct and delete your personal information, to opt out of its "sale" or "sharing", and to limit use of sensitive personal information beyond what is needed to provide the app.</p>
-      <p><strong>We do not sell or share personal information as California law defines those terms</strong>, and we use sensitive personal information — your wellbeing and return-to-training inputs — only to run the app and build your plan. Email <a href="mailto:support@foxhuntdigital.com">support@foxhuntdigital.com</a> to exercise these rights. You may use an authorised agent, subject to verification.</p>
+      <p><strong>We do not sell or share personal information as California law defines those terms</strong>, and we use sensitive personal information — your wellbeing and return-to-training inputs — only to run the app and build your plan, including the coarse, non-identifying ranges described above. Email <a href="mailto:support@foxhuntdigital.com">support@foxhuntdigital.com</a> to exercise these rights. You may use an authorised agent, subject to verification.</p>
 
       <h2 id="children">Children</h2>
       <p>PIVOT is not intended for anyone under 16, and we do not knowingly collect data from anyone under 16. If you believe a child has created an account, write to us and we will delete it.</p>
